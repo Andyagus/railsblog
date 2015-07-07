@@ -1,0 +1,29 @@
+<%= form_for @user do |f| %>
+<%= f.label :username %>
+<%= f.text_field :username, {placeholder: 'Username'} %> <br>
+
+<%= f.label :password %>
+<%= f.text_field :password, {placeholder: 'Password'} %> <br>
+
+<%= f.label :fname %>
+<%= f.text_field :fname, {placeholder: 'First Name'} %> <br>
+
+<%= f.label :lname %>
+<%= f.text_field :lname, {placeholder: 'Last Name'} %> <br>
+
+<%= f.label :birthday %>
+<%= f.date_select :birthday, {placeholder: 'Birthday'} %> <br>
+
+<%= f.label :location %>
+<%= f.text_field :location, {placeholder: 'Location'} %> <br>
+
+<%= f.submit :Submit %>
+<% end %>
+
+
+
+
+
+
+
+
