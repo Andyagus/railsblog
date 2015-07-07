@@ -1,0 +1,8 @@
+<h1> Post Index Page </h1>
+
+<% @posts.reverse.each do |post| %>
+  <h3> <%=post.user.username%> </h3>
+  <h1> <%=post.posttitle%> </h1>
+  <h3> <%=post.posttext%> </h3>
+
+<% end %>   

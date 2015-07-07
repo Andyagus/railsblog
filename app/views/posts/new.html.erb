@@ -1,0 +1,7 @@
+<%= form_for @post do |f| %>
+  <%= f.label :Title %>
+  <%= f.text_field :posttitle, {placeholder: 'Title'} %> <br>
+  <%= f.label :Text %>
+  <%= f.text_field :posttext, {placeholder: 'Enter your post'} %> <br>
+  <%= f.submit :create %>
+<% end %>
