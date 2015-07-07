@@ -11,13 +11,33 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150707172551) do
+ActiveRecord::Schema.define(version: 20150707201118) do
+
+  create_table "comments", force: true do |t|
+    t.string   "index"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "commenttext"
+    t.integer  "user_id"
+  end
+
+  create_table "posts", force: true do |t|
+    t.string   "posttitle"
+    t.string   "posttext"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "user_id"
+  end
 
   create_table "users", force: true do |t|
     t.string   "username"
     t.string   "password"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "fname"
+    t.string   "lname"
+    t.datetime "birthday"
+    t.string   "location"
   end
 
 end
