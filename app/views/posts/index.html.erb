@@ -1,12 +1,13 @@
 <h1> Post Index Page </h1>
 
 <% @posts.reverse.each do |post| %>
-  <h3> Username </h3>
-  <p> <%=post.user.username%> </p>
+
    <h3> Title </h3>
   <p> <%=post.posttitle%> </p>
    <h3> Text </h3>
   <p> <%=post.posttext%> </p>
+  <p> Posted by <%=post.user.username%> @ <%=post.created_at %>  </p>
+
     
 
 <br>

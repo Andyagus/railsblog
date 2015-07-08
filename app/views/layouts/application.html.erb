@@ -3,11 +3,41 @@
 <head>
   <title>Railsblog</title>
   <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+<%= stylesheet_link_tag "styles.css" %>
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
 
+<header>
+
+</header>
+
+<ul>
+  <li><a href="#">
+     <% if current_user %>
+       <%= link_to "Sign Out", '/logout', method: :delete %>
+     <% else %>
+       <%= form_tag '/sessions' do %>
+         <%= text_field_tag :username, nil, placeholder: "Username" %>
+         <%= password_field_tag :password, nil, placeholder: "Password" %>
+         <%= submit_tag "Log In" %>
+       <% end %>
+     <% end %>
+
+   </a></li>
+  
+  <li><a href="#">Profile</a></li>
+  <li><a href="#">Feed</a></li>
+  <li><a href="#">Users</a></li>
+</ul>
+
+
+     <% if flash[:alert] %>
+       <div style="background:yellow;">
+         <%= flash[:alert] %>
+       </div>
+     <% end %>
 
 <%= yield %>
 
