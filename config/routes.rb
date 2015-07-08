@@ -10,6 +10,10 @@ Railsblog::Application.routes.draw do
 
   resources :sessions
 
+  resources :posts do
+    resources :comments
+  end  
+
   delete '/logout' => 'sessions#destroy'
 
   # The priority is based upon order of creation: first created -> highest priority.
