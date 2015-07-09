@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-
+<link href='http://fonts.googleapis.com/css?family=Indie+Flower' rel='stylesheet' type='text/css'>
   <title>Railsblog</title>
   <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
@@ -9,21 +9,17 @@
 </head>
 <body>
   
-<div id="wrapper">
 
-
-<header>
 <nav>
     <ul>
-     <li><a href="#">
-       
+     <li><a href="#">Home</a></li>
      <li><a href="#">Profile</a></li> 
      <li><a href="#">Feed</a></li>
-     <li><a href="#">Users</a></li>
+    <!--  <li><a href="#">Users</a></li> -->
     
-     <li><a href="#"> 
-        <% if current_user %>
+     <li> 
           <div class="form_inputbutton">
+          <% if current_user %>
           <%= link_to "Sign Out", '/logout', method: :delete %>
           </div>
         <% else %>
@@ -37,25 +33,21 @@
               </div>
              <% end %>
          </div>
-      </ul></li></a>
-        <% end %>
-   
+         <% end %>
+      </li></ul>
+        
     <br><br>
-
 </nav>
 
-</header>
-
-
         <% if flash[:alert] %>
-          <div style="background:yellow;">
+          <div class="flash" >
             <%= flash[:alert] %>
           </div>
         <% end %>
 
 <%= yield %>
 
-</div>
+
 
 </body>
 </html>
