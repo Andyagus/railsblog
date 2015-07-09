@@ -1,45 +1,61 @@
 <!DOCTYPE html>
 <html>
 <head>
+
   <title>Railsblog</title>
   <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
-<%= stylesheet_link_tag "styles.css" %>
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
+  
+<div id="wrapper">
+
 
 <header>
+<nav>
+    <ul>
+     <li><a href="#">
+       
+     <li><a href="#">Profile</a></li> 
+     <li><a href="#">Feed</a></li>
+     <li><a href="#">Users</a></li>
+    
+     <li><a href="#"> 
+        <% if current_user %>
+          <div class="form_inputbutton">
+          <%= link_to "Sign Out", '/logout', method: :delete %>
+          </div>
+        <% else %>
+         <div class="small_form">
+            <%= form_tag '/sessions' do %>
+            <%= text_field_tag( :username, nil, placeholder: "Username", :class => "form_inputbox" ) %>
+            <%= password_field_tag :password, nil, placeholder: "Password", :class => "form_inputbox" %>
+
+              <div class="form_inputbutton"> 
+              <%= submit_tag("Log In", class: "form_inputbutton") %> 
+              </div>
+             <% end %>
+         </div>
+      </ul></li></a>
+        <% end %>
+   
+    <br><br>
+
+</nav>
 
 </header>
 
-<ul>
-  <li><a href="#">
-     <% if current_user %>
-       <%= link_to "Sign Out", '/logout', method: :delete %>
-     <% else %>
-       <%= form_tag '/sessions' do %>
-         <%= text_field_tag :username, nil, placeholder: "Username" %>
-         <%= password_field_tag :password, nil, placeholder: "Password" %>
-         <%= submit_tag "Log In" %>
-       <% end %>
-     <% end %>
 
-   </a></li>
-  
-  <li><a href="#">Profile</a></li>
-  <li><a href="#">Feed</a></li>
-  <li><a href="#">Users</a></li>
-</ul>
-
-
-     <% if flash[:alert] %>
-       <div style="background:yellow;">
-         <%= flash[:alert] %>
-       </div>
-     <% end %>
+        <% if flash[:alert] %>
+          <div style="background:yellow;">
+            <%= flash[:alert] %>
+          </div>
+        <% end %>
 
 <%= yield %>
+
+</div>
 
 </body>
 </html>

@@ -15,6 +15,7 @@ class UsersController < ApplicationController
 
    def create
       @user = User.create params[:user]
+      session[:user_id] = @user.id
       flash[:alert] = "Just created new user!"
       redirect_to root_path
    end
