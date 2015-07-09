@@ -11,16 +11,14 @@
 <%= f.label :lname %>
 <%= f.text_field :lname, {placeholder: 'Last Name'} %> <br>
 
-<%= f.label :birthday %>
-<%= f.date_select :birthday, {placeholder: 'Birthday'} %> <br>
+<%= f.label :age %>
+<%= text_field_tag :age, nil, {placeholder: 'Years old'} %> <br>
 
 <%= f.label :location %>
 <%= f.text_field :location, {placeholder: 'Location'} %> <br>
 
 <%= f.submit :Submit %>
 <% end %>
-
-
 
 
 

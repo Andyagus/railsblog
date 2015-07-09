@@ -16,13 +16,14 @@
 <nav>
     <ul>
      <li><a href="#">
-       
-     <li><a href="#">Profile</a></li> 
-     <li><a href="#">Feed</a></li>
+      <li> <%= link_to "Sign Up", new_user_path %> </li> 
+       <% if current_user %>
+     <li> <%= link_to "Profile", user_path(current_user)%> </li> 
+     <li><%= link_to "Feed", posts_path%></li>
      <li><a href="#">Users</a></li>
     
      <li><a href="#"> 
-        <% if current_user %>
+       
           <div class="form_inputbutton">
           <%= link_to "Sign Out", '/logout', method: :delete %>
           </div>
@@ -52,6 +53,7 @@
             <%= flash[:alert] %>
           </div>
         <% end %>
+<div class = "clear"></div>
 
 <%= yield %>
 

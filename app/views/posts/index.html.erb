@@ -1,28 +1,38 @@
 
 <h1> Post Index Page </h1>
 
+<%= form_for @post do |f| %>
+  <%= f.label :Title %>
+  <%= f.text_field :posttitle, {placeholder: 'Title'} %> <br>
+  <%= f.label :Text %>
+  <%= f.text_field :posttext, {placeholder: 'Enter your post'} %> <br>
+  <%= f.submit :create %>
+<% end %>
 
-<div class="content"
+<div class="content">
   <% @posts.reverse.each do |post| %>
 
-     <h3> Title </h3>
-    <p> <%=post.posttitle%> </p>
-     <h3> Text </h3>
-    <p> <%=post.posttext%> </p>
+    <div class = "posttitle"> 
+      <h2> <%=link_to post.posttitle, post_path(post.id)%> </h2>
+    </div>
+
+    <div class = "posttext">
+    <h4> <%=post.posttext%> </h4>
+    </div>
+
+
     <p> Posted by <%=post.user.username%> @ <%=post.created_at %>  </p>
-
-      
-
-  <br>
 
   <%= form_for @comment do |f| %>
     <h3> <%= f.label :Comment %> </h3>
     <%= f.text_field :commenttext %>
     <%= f.hidden_field :post_id, value: post.id %>
     <%= f.submit :create %>
+    <br><br>
     <% end %>
     
     <% post.comments.each do |c| %>
        <p> <%=c.commenttext%> </p>
      <% end %>
   <% end %>   
+</div>

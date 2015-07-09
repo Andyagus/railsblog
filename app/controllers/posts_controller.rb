@@ -2,6 +2,7 @@ class PostsController < ApplicationController
 
    def index
       @posts = Post.all
+      @post = Post.new
       @comment = Comment.new
    end   
 
@@ -15,7 +16,15 @@ class PostsController < ApplicationController
       @comment = current_user.comments.create(params[:comment])
       @post = current_user.posts.create params[:post]
       flash[:alert] = "Just created your post!"
-      redirect_to root_path
+      redirect_to posts_path
+
    end
+
+   def show
+      @post = Post.find params[:id]
+      @comment = Comment.new
+      
+   end
+
 
 end
