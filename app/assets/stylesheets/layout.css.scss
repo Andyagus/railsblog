@@ -1,18 +1,24 @@
 body {
    font-size: 14px;
-   font-family: 'Roboto Slab', serif;
-/*   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-*/ width: 1200px;
-   margin: 0 auto;
+/*   font-family: 'Roboto Slab', serif;
+*/   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+
 
 }
 
-#wrapper {
+.wrapper {
+   width: 1200px;
+   height: 1000px;
+   margin: 0 auto;
 }
 
 nav {
-   width: 100%; 
-   margin-bottom:1.5%;
+   width: 30%; 
+   margin: 0 auto;
+   position: absolute;
+   top: 18px;
+   left:35%;
+   border-bottom: 2px #CE3733 solid;
 }
 
 nav ul {
@@ -28,10 +34,12 @@ nav li{
 
 nav li a {
    display:inline-block;
-   padding: 20px;
+   padding-right: 50px;
    text-decoration: none;
    color: #7599bf;
    margin: -10px;
+   font-weight: bold;
+   letter-spacing: 1.2px;
 }
 nav li a:hover {
    color:#DB2739;
@@ -81,7 +89,11 @@ nav li a:hover {
    font-family: 'Indie Flower', cursive;
 }
 .body_image img{
-   width: 100%;
-   height: 60%;
+   max-width: 100%;
+}
+.body_image {
+   width: 70%;
+   margin: 0 auto;
+ /*  background-color: red;*/
 }
 
