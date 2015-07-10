@@ -1,5 +1,12 @@
+<div class = "Container">
+   <img class= "pageim" src = "tahta_body.png">
 
-<h1> Post Index Page </h1>
+  <div class="content">
+    <h1> Post Index Page </h1>
+    <h4>(For more use the scroll)</h4>
+    <div class= "postscroll">
+    <% @posts.reverse.each do |post| %>
+
 
 <%= form_for @post do |f| %>
   <%= f.label :Title %>
@@ -25,6 +32,7 @@
 
   <%= form_for @comment do |f| %>
     <h3> <%= f.label :Comment %> </h3>
+
     <%= f.text_field :commenttext %>
     <%= f.hidden_field :post_id, value: post.id %>
     <%= f.submit :create %>
@@ -34,5 +42,13 @@
     <% post.comments.each do |c| %>
        <p> <%=c.commenttext%> </p>
      <% end %>
+
   <% end %>   
 </div>
+
+    <% end %>   
+    
+    </div> <!-- end of the postsscroll -->
+  </div> <!-- end of content-->
+</div> <!-- end of container -->
+

@@ -1,3 +1,31 @@
 // Place all the styles related to the Posts controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.pageim {
+  margin: auto;
+  position: absolute;
+  z-index: -1;
+}
+.content {
+  text-align: justify;
+  padding: 10px 40px;
+
+}
+.postscroll{
+  width: 800px;
+  height: 600px;
+  overflow-x: hidden;
+  overflow: scroll;
+}
+
+h1, h4 {
+  text-align: center;
+}
+h2{
+  color: #DB2739;
+}
+p {
+  font-size: 24px;
+  font-family: 'Indie Flower', cursive; 
+}
