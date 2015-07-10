@@ -1,11 +1,26 @@
-<body>
-
-<%= @user.username %>
-<%= @user.fname%>
-<%= @user.lname%>
-<%= @user.birthday%>
-<%= @user.location%>
 
 
+   <div class = "user_name">
+      <%= @user.fname%>
+      <%= @user.lname%>
+   </div>   
+   <div class = "user_username">
+      <%= @user.username %>
+   </div> 
 
-</body>
+   <div class = "user_location">
+      <%= @user.location%>
+   </div>
+
+   <div class = "user_birthday">
+      <%= @user.birthday%>
+   </div>      
+
+<br>
+   Recent Posts: <br>
+   <% @user.posts.each do |p| %>
+      <%= p.posttitle %>
+      <%= p.posttext %>
+   <%end%>
+
+  

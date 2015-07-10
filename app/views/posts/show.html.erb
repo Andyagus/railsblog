@@ -1,0 +1,25 @@
+<div class = "clear"></div>
+
+    <div class = "posttitle"> 
+      <h1> <%=@post.posttitle %>  </h1>
+    </div>
+    
+   <div class = "posttext">
+      <h5> <%=@post.posttext%> </h5>
+   </div>
+
+<p>  Posted by <%=@post.user.username %>  <%=@post.created_at %> </p>
+
+ <%= form_for @comment do |f| %>
+    <h3> <%= f.label :Comment %> </h3>
+    <%= f.text_field :commenttext, placeholder: 'Put comment here' %>
+    <%= f.hidden_field :post_id, value: @post.id %>
+    <%= f.submit :create %>
+    <br><br>
+    <% end %>
+
+
+   <% @post.comments.each do |c| %>
+       <p>User:  <%= c.user.username %> </p>  
+         <p>Comment: <%=c.commenttext%> </p>
+   <% end %>

@@ -7,26 +7,48 @@
     <div class= "postscroll">
     <% @posts.reverse.each do |post| %>
 
-    <h2> Title </h2>
-    <p class= "posttitle"> <%=post.posttitle%> </p>
-    <h2> Text </h2>
-    <p class="posttext"> <%=post.posttext%> </p>
-    <p class="posted"> Posted by <%=post.user.username%> @ <%=post.created_at %> "style= font-size </p>
-    
-    <br>
 
-    <%= form_for @comment do |f| %>
-    <h2> <%= f.label :Comment %> </h2>
+<%= form_for @post do |f| %>
+  <%= f.label :Title %>
+  <%= f.text_field :posttitle, {placeholder: 'Title'} %> <br>
+  <%= f.label :Text %>
+  <%= f.text_field :posttext, {placeholder: 'Enter your post'} %> <br>
+  <%= f.submit :create %>
+<% end %>
+
+<div class="content">
+  <% @posts.reverse.each do |post| %>
+
+    <div class = "posttitle"> 
+      <h2> <%=link_to post.posttitle, post_path(post.id)%> </h2>
+    </div>
+
+    <div class = "posttext">
+    <h4> <%=post.posttext%> </h4>
+    </div>
+
+
+    <p> Posted by <%=post.user.username%> @ <%=post.created_at %>  </p>
+
+  <%= form_for @comment do |f| %>
+    <h3> <%= f.label :Comment %> </h3>
+
     <%= f.text_field :commenttext %>
     <%= f.hidden_field :post_id, value: post.id %>
     <%= f.submit :create %>
+    <br><br>
     <% end %>
     
     <% post.comments.each do |c| %>
        <p> <%=c.commenttext%> </p>
      <% end %>
+
+  <% end %>   
+</div>
+
     <% end %>   
     
     </div> <!-- end of the postsscroll -->
   </div> <!-- end of content-->
 </div> <!-- end of container -->
+
