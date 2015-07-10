@@ -12,29 +12,31 @@
 
 <nav>
     <ul>
-     <li><a href="#">Home</a></li>
-     <li><a href="#">Profile</a></li> 
-     <li><a href="#">Feed</a></li>
-    <!--  <li><a href="#">Users</a></li> -->
-    
-     <li> 
-          <div class="form_inputbutton">
+  
           <% if current_user %>
-          <%= link_to "Sign Out", '/logout', method: :delete %>
-          </div>
+           
+          <li> <%= link_to "Home", root_path %> </li>  
+          <li> <%= link_to "Profile", user_path(current_user)%> </li> 
+           <li><%= link_to "Feed", posts_path%></li>
+          <li><%= link_to "Sign Out", '/logout', method: :delete %></li>
         <% else %>
-         <div class="small_form">
+
+        <div class="form_inputbutton">
+        <li> <%= link_to "Sign Up", new_user_path %> </li> 
+        </div>
+            <div class="small_form">
             <%= form_tag '/sessions' do %>
             <%= text_field_tag( :username, nil, placeholder: "Username", :class => "form_inputbox" ) %>
-            <%= password_field_tag :password, nil, placeholder: "Password", :class => "form_inputbox" %>
-
+            <%= password_field_tag( :password, nil, placeholder: "Password", :class => "form_inputbox") %>
+  
               <div class="form_inputbutton"> 
               <%= submit_tag("Log In", class: "form_inputbutton") %> 
               </div>
              <% end %>
+             <% end %>
          </div>
-         <% end %>
-      </li></ul>
+       
+     </ul>
         
     <br><br>
 </nav>
@@ -44,9 +46,14 @@
             <%= flash[:alert] %>
           </div>
         <% end %>
+<div class = "clear"></div>
 
-<%= yield %>
+<div class = "Container">
+   <img class= "pageim" src = "/tahta_body.png">
 
+  <%= yield %>
+
+  </div> <!-- end of container -->
 
 
 </body>
