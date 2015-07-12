@@ -4,19 +4,17 @@
   <div class="content">
     <h1> Post Index Page </h1>
     <h4>(For more use the scroll)</h4>
-    <div class= "postscroll">
-    <% @posts.reverse.each do |post| %>
 
-
-<%= form_for @post do |f| %>
+    <div class= "newpost">
+  <%= form_for @post do |f| %>
   <%= f.label :Title %>
   <%= f.text_field :posttitle, {placeholder: 'Title'} %> <br>
   <%= f.label :Text %>
   <%= f.text_field :posttext, {placeholder: 'Enter your post'} %> <br>
   <%= f.submit :create %>
-<% end %>
-
-<div class="content">
+  <% end %>
+</div>
+<div class="postscroll">
   <% @posts.reverse.each do |post| %>
 
     <div class = "posttitle"> 
@@ -24,12 +22,13 @@
     </div>
 
     <div class = "posttext">
-    <h4> <%=post.posttext%> </h4>
+    <h2> <%=post.posttext%> </h2>
     </div>
 
 
     <p> Posted by <%=post.user.username%> @ <%=post.created_at %>  </p>
 
+    <div class= "comment">
   <%= form_for @comment do |f| %>
     <h3> <%= f.label :Comment %> </h3>
 
@@ -38,17 +37,18 @@
     <%= f.submit :create %>
     <br><br>
     <% end %>
-    
+    </div>
+    <div class="commentout">
     <% post.comments.each do |c| %>
        <p> <%=c.commenttext%> </p>
-     <% end %>
-
+    <% end %>
+    <hr>
+  </div>
   <% end %>   
 </div>
 
-    <% end %>   
-    
-    </div> <!-- end of the postsscroll -->
+   
+   
   </div> <!-- end of content-->
 </div> <!-- end of container -->
 
