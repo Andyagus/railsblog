@@ -10,6 +10,7 @@ class SessionsController < ApplicationController
     username = params[:username]
     password = params[:password]
 
+
     @user = User.where(username: username).first
 
     if @user.nil?
