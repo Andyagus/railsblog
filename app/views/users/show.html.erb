@@ -1,26 +1,34 @@
 
-
+<div class = "new_user">
+   
+<div id = "profile_info">
    <div class = "user_name">
+   <h3>
       <%= @user.fname%>
       <%= @user.lname%>
-   </div>   
+   </h3>
+   </div>  
+
    <div class = "user_username">
-      <%= @user.username %>
+      Username: 
+     <%= @user.username %> 
    </div> 
 
+   <br>
+
    <div class = "user_location">
+      Location:
       <%= @user.location%>
    </div>
 
    <div class = "user_birthday">
+     
       <%= @user.birthday%>
    </div>      
-
+</div>
 <br>
    Recent Posts: <br>
    <% @user.posts.each do |p| %>
-      <%= p.posttitle %>
-      <%= p.posttext %>
+      <%= link_to p.posttitle, posts_path %>
    <%end%>
-
-  
+</div>  

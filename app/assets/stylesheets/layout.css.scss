@@ -1,18 +1,31 @@
 body {
    font-size: 14px;
-   font-family: 'Roboto Slab', serif;
-/*   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-*/ width: 1200px;
+   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+ 
    margin: 0 auto;
+   letter-spacing: .8px;
+   margin-top: 10px;
 
 }
 
 #wrapper {
+   width: 1000px;
+   height: 800px;
+   background-image: url("../tahta_body.png");
+   background-size: 100%;
+   background-repeat: no-repeat;
+   margin: 0 auto;
 }
 
 nav {
-   width: 100%; 
+   width: 80%; 
+   margin-left: 20px;
    margin-bottom:1.5%;
+   padding-top: 10px;
+   letter-spacing: 1.4px;
+   padding-bottom: 10px;
+
+
 }
 
 nav ul {
@@ -23,7 +36,7 @@ nav ul {
 
 nav li{
    float: left;
-   font-size: 1.3em;
+   font-size: 1em;
 }
 
 nav li a {
@@ -31,10 +44,11 @@ nav li a {
    padding: 20px;
    text-decoration: none;
    color: #7599bf;
-   margin: -10px;
+
 }
 nav li a:hover {
    color:#DB2739;
+
 }
 .clear {
    clear: both;
@@ -43,6 +57,7 @@ nav li a:hover {
 .small_form{
    position: absolute;
    left: 50%;
+   margin-top: 30px;
    
 }
 
@@ -51,8 +66,8 @@ nav li a:hover {
    font-family: 'Roboto Slab', serif;
    font-size: 1em;
    display:inline-block;
-   color: #7599bf;
    border: 1px #7599bf solid;
+   
    padding-left: 5px;
 }
 
@@ -61,6 +76,7 @@ nav li a:hover {
    color: #7599bf;
    width: 100px;
    border:none;
+   margin-top: 20px;
  /*  box-shadow: 0;*/
   /* padding: 0px;*/
  /*  border-radius: 0px;
@@ -68,8 +84,36 @@ nav li a:hover {
    font-size: 1em;
    float: left;
    display:inline-block;
-   background-color: white;
 }
+
+.form_inputbutton {
+   font-family: 'Roboto Slab', serif;
+   color: #7599bf;
+   width: 100px;
+   border:none;
+   margin-top: 20px;
+ /*  box-shadow: 0;*/
+  /* padding: 0px;*/
+ /*  border-radius: 0px;
+   border: 0px;*/
+   font-size: 1em;
+   float: left;
+   display:inline-block;
+}
+
+.loggin {
+   margin-top: 0px;
+   float: left;
+   font-family: 'Roboto Slab', serif;
+   color: #7599bf;
+   border:none;
+   font-size: 1em;
+   box-shadow: none;
+
+
+
+}
+
 .flash{
    padding: 40px;
    color:#DB2739;
@@ -77,11 +121,49 @@ nav li a:hover {
    position: absolute;
    top: 10%; 
    left: 35%;
-   font-size: 40px;
-   font-family: 'Indie Flower', cursive;
+   font-size: 1em;
+   font-family: 'arial';
 }
-.body_image img{
-   width: 100%;
-   height: 60%;
+
+.body_image {
+   max-width: 80%;
+   margin: 0 auto;
+}
+
+.new_user {
+   width: 400px;
+   padding-top: 50px;
+   margin-left: 50px;
+}
+
+.new_form label {
+   background-color: red;
+   color: white;
+}
+
+.form_button {
+   border:none;
+   background-color: red;
+   color: white;
+   padding:20px;
+}
+
+#profile_info{
+margin: 0px;
+padding: 0 px;
+}
+
+#profile_info h3{
+   font-size: 2em;
+   border-bottom: 1px solid black;
+   padding-bottom: 2px;
+   width: 220px;
+}
+
+#profile_info h6{
+   font-size: 1.5em;
+   width: 220px;
+   margin: 0 px;
+   padding: 0px;
 }
 

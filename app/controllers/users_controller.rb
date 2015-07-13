@@ -13,14 +13,20 @@ class UsersController < ApplicationController
    end   
 
    def create
-      @user = User.create params[:user]
-      @age = params[:age].to_i
-      birthday = @age.years.ago
-      @user.birthday = birthday
-      @user.save
-      session[:user_id] = @user.id
-      flash[:alert] = "Just created new user!"
-      redirect_to root_path
+         @user = User.all
+
+         if User.find_by(params[:user])
+           flash[:alert] = "This user exists already"
+           redirect_to new_user_path
+         elsif
+           params[:user][:password] == params[:password_confirmation]
+           @user = User.create params[:user]
+           flash[:alert] = "#{@user.username} has been signed up"
+           redirect_to users_path
+         else
+           flash[:alert] = "Your password did not match confirmation"
+           redirect_to new_user_path
+         end
    end
 
    def show

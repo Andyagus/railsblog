@@ -13,8 +13,8 @@
     <td><%= f.password_field :password, {placeholder: 'Password'} %> </td>
   </tr>
   <tr>
-    <td><%= f.label :password_confirmation %></td>
-    <td><%= f.password_field :password_confirmation, {placeholder: 'Confirm Password'} %></td>
+    <td><%= f.label :Confirm %></td>
+    <td> <%= password_field_tag( :password_confirmation,nil, placeholder: "Password Confirmation") %> 
   </tr>
     <td><%= f.label :fname %></td>
     <td><%= f.text_field :fname, {placeholder: 'First Name'} %></td> 
@@ -29,7 +29,7 @@
   <td><%= f.text_field :location, {placeholder: 'Location'} %> </td>
   </tr>
   <tr>
-  <td><%= f.submit :Submit %></td>
+  <td><%= f.submit :Submit, class: "form_button"%></td>
   </tr>
   <% end %>
   </div>

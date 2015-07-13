@@ -1,10 +1,19 @@
 
 
 <div class = "body_image">
-   <img src = "tahta.png">
-
    <div class = "Main Content">
-    <h2>Listing Users</h2>
+     <div class = "allusers">
+    <h2>Online Users</h2>
     
+  
+          <% @user.each do |u| %>
+      <div class = "online_circle">
+            <p> <%= link_to u.username, users_path %> </p>
+       </div>     
+          <% end %> 
+     
+    </div>
+     <img src = "../tahta.png"> </img>
+
    </div> <!-- end of main content-->
 </div> <!-- end of body image -->
