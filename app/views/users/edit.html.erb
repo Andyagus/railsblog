@@ -3,43 +3,46 @@
   
   <div class= "edit_form">
 
-  <table>
-    <tr>
+  <nav>
       <%= form_for @user do |f| %>
-      <td><%= f.label :username %></td>
-      <td><%= f.text_field :username, {placeholder: 'Username'} %> </td>
-    </tr>
-    <tr>
-      <td><%= f.label :password %></td>
-      <td><%= f.password_field :password, {placeholder: 'Password'} %> </td>
-      </tr>
-      <tr>
-      <td><%= f.label :password_confirmation %></td>
-      <td><%= f.password_field :password_confirmation, {placeholder: 'Confirm Password'} %></td>
+    <ul>
+      <li><%= f.label :username %></li>
+      <li><%= f.text_field :username, {placeholder: 'Username'} %> </li>
+    </ul>
+    <ul>
+      <li><%= f.label :password %></li>
+      <li><%= f.password_field :password, {placeholder: 'Password'} %> </li>
+      </ul>
+      <ul>
+      <li><%= f.label :password_confirmation %></li>
+      <li><%= f.password_field :password_confirmation, {placeholder: 'Confirm Password'} %></li>
  
-      </tr>
-        <td><%= f.label :fname %></td>
-        <td><%= f.text_field :fname, {placeholder: 'First Name'} %></td> 
-      <tr>
-        <td><%= f.label :lname %></td>
-        <td><%= f.text_field :lname, {placeholder: 'Last Name'} %></td> 
-      </tr>
-        <td><%= f.label :age %></td>
-       <td><%= text_field_tag :age, nil, {placeholder: 'Years old'} %></td> 
-      <tr>
-       <td><%= f.label :location %></td>
-       <td><%= f.text_field :location, {placeholder: 'Location'} %> </td>
-      </tr>
-      <tr>
-       <td><%= f.submit :Submit %></td>
-      </tr>
-  </table>
-
-  <%= link_to 'Show', @user %>
-  <%= link_to 'Back', user_path %>
-  <% end %>
+      </ul>
+        <li><%= f.label :fname %></li>
+        <li><%= f.text_field :fname, {placeholder: 'First Name'} %></li> 
+      <ul>
+        <li><%= f.label :lname %></li>
+        <li><%= f.text_field :lname, {placeholder: 'Last Name'} %></li> 
+      </ul>
+        <li><%= f.label :age %></li>
+       <li><%= text_field_tag :age, nil, {placeholder: 'Years old'} %></li> 
+      <ul>
+       <li><%= f.label :location %></li>
+       <li><%= f.text_field :location, {placeholder: 'Location'} %> </li>
+      </ul>
+      <ul>
+       <li><%= f.submit :Submit %></li>
+      </ul>
+    <% end %>
+  </nav><br>
   </div>
-
+  <div class="setting">
+  <%= link_to 'Back', user_path %><br>
+    <% if current_user[:id]%>
+      <%=link_to 'Delete', @user, method: :delete, data: {confirm: "You sure?"} %>
+    <% end %>
+  </div>
+  
 </div>
 
 

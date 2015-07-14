@@ -26,9 +26,20 @@
       <%= @user.birthday%>
    </div>      
 </div>
+</div> 
 <br>
-   Recent Posts: <br>
-   <% @user.posts.each do |p| %>
-      <%= link_to p.posttitle, posts_path %>
-   <%end%>
-</div>  
+<div id="recpost">
+   <p>Recent Posts: </p>
+   <div class="show_post">
+      <% @user.posts.each do |p| %>
+         <%= link_to p.posttitle, posts_path %>
+      <%end%>
+   </div><br>
+   <div class="setting">
+      <%= link_to 'Edit', edit_user_path(current_user)%>
+      <% if current_user[:id]%>
+         <%=link_to 'Delete Account', @user, method: :delete, data: {confirm: "You sure?"} %>
+      <% end %>
+   </div>
+</div>
+ 

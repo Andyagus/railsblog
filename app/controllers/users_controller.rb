@@ -4,16 +4,14 @@ class UsersController < ApplicationController
       @user = User.all
    end
 
-   def edit
-      @user = User.find params[:id]
-   end
+
 
    def new 
-      @user = User.new
+    @user = User.new
    end   
 
    def create
-         @user = User.all
+         @user = User.new
 
          if User.find_by(params[:user])
            flash[:alert] = "This user exists already"
@@ -34,8 +32,34 @@ class UsersController < ApplicationController
       @post = Post.all
    end
 
-   def update
-      @user = current_user.update params[:user]
-      redirect_to user_path
+   
+   def edit
+      @user = User.find params[:id]
    end
+
+
+   def update
+    @user = User.find params[:id]
+    @up = user_params
+      if user_params[:password].blank?
+       @up.delete(:password)
+       @up.delete(:password_confirmation)
+      end
+      @user.update! @up 
+      flash[:notice] = "Profile updated"
+      redirect_to user_path(@user)
+      
+   end
+
+   def destroy
+    @user = User.find params[:id]
+    @user.destroy!
+    session.clear
+    flash[:success] = "User deleted"
+    redirect_to root_path
+  end
+
+  def user_params
+    params.require(:user).permit(:fname, :lname, :password, :password_confirmation, :age, :location )
+  end
 end
