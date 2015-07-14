@@ -38,4 +38,12 @@ class UsersController < ApplicationController
       @user = current_user.update params[:user]
       redirect_to user_path
    end
+
+   def destroy
+    User.find(params[:id]).destroy
+    flash[:success] = "User deleted"
+    session.delete(:user_id)
+    @current_user = nil
+    redirect_to root_path
+  end
 end

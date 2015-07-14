@@ -4,8 +4,8 @@
   <div class= "edit_form">
 
   <table>
-    <tr>
       <%= form_for @user do |f| %>
+    <tr>
       <td><%= f.label :username %></td>
       <td><%= f.text_field :username, {placeholder: 'Username'} %> </td>
     </tr>
@@ -33,13 +33,16 @@
       <tr>
        <td><%= f.submit :Submit %></td>
       </tr>
-  </table>
-
-  <%= link_to 'Show', @user %>
-  <%= link_to 'Back', user_path %>
-  <% end %>
+    <% end %>
+  </table><br>
   </div>
-
+  <div class="setting">
+  <%= link_to 'Back', user_path %><br>
+    <% if current_user[:id]%>
+      <%=link_to 'Delete', @user, method: :delete, data: {confirm: "You sure?"} %>
+    <% end %>
+  </div>
+  
 </div>
 
 
