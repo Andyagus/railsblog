@@ -1,40 +1,40 @@
-<div class="edit_user">
+<div class="new_user">
   <h2> Editing User</h2>
   
-  <div class= "edit_form">
+  <div class= "new_form">
 
-  <nav>
-      <%= form_for @user do |f| %>
-    <ul>
-      <li><%= f.label :username %></li>
-      <li><%= f.text_field :username, {placeholder: 'Username'} %> </li>
-    </ul>
-    <ul>
-      <li><%= f.label :password %></li>
-      <li><%= f.password_field :password, {placeholder: 'Password'} %> </li>
-      </ul>
-      <ul>
-      <li><%= f.label :password_confirmation %></li>
-      <li><%= f.password_field :password_confirmation, {placeholder: 'Confirm Password'} %></li>
- 
-      </ul>
-        <li><%= f.label :fname %></li>
-        <li><%= f.text_field :fname, {placeholder: 'First Name'} %></li> 
-      <ul>
-        <li><%= f.label :lname %></li>
-        <li><%= f.text_field :lname, {placeholder: 'Last Name'} %></li> 
-      </ul>
-        <li><%= f.label :age %></li>
-       <li><%= text_field_tag :age, nil, {placeholder: 'Years old'} %></li> 
-      <ul>
-       <li><%= f.label :location %></li>
-       <li><%= f.text_field :location, {placeholder: 'Location'} %> </li>
-      </ul>
-      <ul>
-       <li><%= f.submit :Submit %></li>
-      </ul>
-    <% end %>
-  </nav><br>
+<table>
+  <tr>
+    <%= form_for @user do |f| %>
+    <td><%= f.label :username %></td>
+    <td><%= f.text_field :username, {placeholder: 'Username'} %> </td>
+  </tr>
+  <tr>
+    <td><%= f.label :password %></td>
+    <td><%= f.password_field :password, {placeholder: 'Password'} %> </td>
+  </tr>
+  <tr>
+    <td><%= f.label :Confirm %></td>
+    <td> <%= password_field_tag( :password_confirmation,nil, placeholder: "Password Confirmation") %> 
+  </tr>
+    <td><%= f.label :fname %></td>
+    <td><%= f.text_field :fname, {placeholder: 'First Name'} %></td> 
+  <tr>
+  <td><%= f.label :lname %></td>
+  <td><%= f.text_field :lname, {placeholder: 'Last Name'} %></td> 
+  </tr>
+  <td><%= f.label :age %></td>
+  <td><%= text_field_tag :age, nil, {placeholder: 'Years old'} %></td> 
+  <tr>
+  <td><%= f.label :location %></td>
+  <td><%= f.text_field :location, {placeholder: 'Location'} %> </td>
+  </tr>
+  <tr>
+  <td><%= f.submit :Submit%></td>
+  </tr>
+  <% end %>
+  </table>
+  </<br>
   </div>
   <div class="setting">
   <%= link_to 'Back', user_path %><br>
